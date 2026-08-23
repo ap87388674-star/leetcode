@@ -1,16 +1,15 @@
 class Solution:
-    def gcdOfOddEvenSums(self, n: int) -> int:
-        import math
-        sumodd=0
-        sumeven=0       
-        for i in range(1,2*n+1):
-            if i%2==0:
-                sumeven+=i
-            else:
-                sumodd+=i
-        return math.gcd(sumodd,sumeven)
+    def checkDivisibility(self, n: int) -> bool:
+        s= str(n)
+        l=[]
+        for i in s:
+            l.append(int(i))
+        digit_sum=(sum(l))
+        digit_product=1
+        for i in l:
+            digit_product=i* digit_product
+        add= digit_sum+ digit_product
+        if n%add==0:
+            return True
+        return False
 
-
-        
-
-        
