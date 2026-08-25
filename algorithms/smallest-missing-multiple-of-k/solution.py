@@ -1,15 +1,13 @@
 class Solution:
-    def checkDivisibility(self, n: int) -> bool:
-        s= str(n)
+    def missingMultiple(self, nums: List[int], k: int) -> int:
+        s=max(nums)
         l=[]
-        for i in s:
-            l.append(int(i))
-        digit_sum=(sum(l))
-        digit_product=1
+        i=1
+        s1=1
+        while s+k>s1:
+                s1=k*i
+                l.append(s1)
+                i+=1
         for i in l:
-            digit_product=i* digit_product
-        add= digit_sum+ digit_product
-        if n%add==0:
-            return True
-        return False
-
+                if i not in nums:
+                    return i
