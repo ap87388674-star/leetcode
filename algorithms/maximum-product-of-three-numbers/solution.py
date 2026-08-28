@@ -1,8 +1,4 @@
 class Solution:
-    def maxProduct(self, n: int) -> int:
-        l=[]
-        s= str(n)
-        for i in sorted(s):
-               l.append(int(i))
-        return(l[-1]*l[-2])
-               
+    def maximumProduct(self, nums: List[int]) -> int:
+        n=sorted(nums)
+        return max(n[-1]* n[-2]* n[-3], n[0]* n[1] * n[-1])
