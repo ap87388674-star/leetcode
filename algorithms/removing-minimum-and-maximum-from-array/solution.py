@@ -1,4 +1,16 @@
 class Solution:
-    def maxProduct(self, nums: List[int]) -> int:
-        n= sorted(nums)
-        return max(((n[-1]-1)* (n[-2]-1)), ((n[0]-1)* (n[1]-1)))
+    def minimumDeletions(self, nums: List[int]) -> int:
+        minimum= min(nums)
+        maximum= max(nums)
+
+        i = nums.index(minimum)
+        j= nums.index(maximum)
+
+        if i>j:
+            i,j=j,i
+
+        left = j+1
+        n= len(nums)
+        right= n-i
+        both = (i+1) + (n-j)
+        return min(left,right,both)
