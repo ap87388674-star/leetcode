@@ -1,18 +1,19 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        ans=[]
-        def traverse(node):
-            if not node:
-                return 
-            traverse(node.left)
-            ans.append(node.val)
-            traverse(node.right)
-        traverse(root)
-        return ans
+    def minElement(self, nums: List[int]) -> int:
+        l=[]
+        for i in nums:
+            l.append((str(i)))
+        new=[]
+        for j in l:
+            new.append(list(j))
+        new1=[]
+        for k in new:
+             new1.append(sum(int(x) for x in k))
+
+        return min(new1)
+            
+
+            
+        
+
         
