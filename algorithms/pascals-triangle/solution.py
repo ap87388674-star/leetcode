@@ -1,19 +1,11 @@
 class Solution:
-    def uniformArray(self, nums1: list[int]) -> bool:
+    def generate(self, numRows: int) -> List[List[int]]:
+        l1=[[1]]
         
-        j=1
-        check=True
-        for i in range(len(nums1)-1):
-            if nums1[i]%2==0:
-                if (nums1[i]- nums1[j])%2==0:
-                    j+=1
-                    pass
-            elif nums1[i]%2!=0:
-                if (nums1[i]- nums1[j])%2!=0:
-                    j+=1
-                    pass
-            else:
-                check=False
-        if check :
-            return True
-        return False
+        for i in range(1,numRows):
+            l2=[1]
+            for j in range(i-1):
+                l2.append(l1[i-1][j]+ l1[i-1][j+1])
+            l2.append(1)    
+            l1.append(l2)
+        return l1
