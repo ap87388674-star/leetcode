@@ -1,29 +1,21 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def minimumDistance(self, nums: List[int]) -> int:
-        d={}
-        for i in nums:
-            if i in d:
-                d[i]+=1
-            else:
-                d[i]=1
-        if max(d.values()) <3:
-            return -1
-        else:
-            l1=[]
-            a=None
-            for key,value in d.items():
-                if value>=3:
-                    a= key
-                l=[]
-                for j  in range(len(nums)):
-                    if nums[j]==a:
-                        l.append(j)
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        # if len(p)!=len(q):
+            # return False
+        if p is None and q is None:
+            return True
+        if p is None or q is None:
+            return False
+        if p.val!= q.val:
+            return False
+        return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
 
-                for i in range(len(l)-2):
-                    score=(abs(l[i]-l[i+1])
-                    + abs(l[i+1]- l[i+2])
-                    + abs(l[i]-l[i+2]))
-                    l1.append(score)
-            return(min(l1))
 
         
+      
