@@ -5,19 +5,19 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        def mirror(left, right):
-            if left is None and right is None:
-                return True
-            if left is None or right is None:
-                return False
-            if left.val!= right.val:
-                return False
+    def preorderTraversal(self, root: TreeNode | None) -> list[int]:
+        ans=[]
+        def preorder(node):
             
-            return mirror(left.left, right.right) and mirror(left.right,right.left)
-        return mirror(root.left, root.right)
-            
+            if node is None:
+                return 
         
-  
             
+            ans.append(node.val)
+            preorder(node.left)
+            preorder(node.right)
+        preorder(root)
+        return ans
+        
+
         
